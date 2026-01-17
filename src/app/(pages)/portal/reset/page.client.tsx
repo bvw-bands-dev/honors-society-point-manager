@@ -74,7 +74,10 @@ export default function ResetClientPage({
           <span className="hidden items-center gap-2 md:flex">
             Officer Portal <Slash className="size-3" />
           </span>{" "}
-          Reset
+          <span className="hidden items-center gap-2 md:flex">
+            Manage <Slash className="size-3" />
+          </span>{" "}
+          Reset Data
         </span>
         <div className="size-12" />
       </div>
