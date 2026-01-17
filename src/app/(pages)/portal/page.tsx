@@ -1,6 +1,6 @@
 /*
  * Blue Flame's Honors Society Point Manager
- * Copyright (C) 2025 Blue Flame
+ * Copyright (C) 2026 Blue Flame
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -23,14 +23,14 @@ import {
   Calendar,
   CheckCheck,
   Dot,
-  Info,
   ListChecks,
-  ShieldUser,
   UserRound,
   UsersRound,
+  Wrench,
 } from "lucide-react";
 import { SignOutButton } from "./layout.client";
 import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Officer Portal",
@@ -99,21 +99,21 @@ export default async function PortalPage() {
             href: "/portal/members",
           },
           {
-            icon: ShieldUser,
-            label: "Change Officers",
-            href: "/portal/officers",
-          },
-          {
-            icon: Info,
-            label: "Application Info",
-            href: "/portal/info",
+            icon: Wrench,
+            label: "Manage Application",
+            href: "/portal/manage",
+            span: true,
           },
         ].map((item) => (
           <Button
             key={item.label}
             variant="secondary"
             href={item.href}
-            className="group bg-secondary/50 hover:bg-secondary relative isolate flex h-auto flex-col items-start justify-end gap-2 overflow-clip rounded-xl !px-6 py-6 pt-32"
+            className={
+              cn(
+                "group bg-secondary/50 hover:bg-secondary relative isolate flex h-auto flex-col items-start justify-end gap-2 overflow-clip rounded-xl !px-6 py-6 pt-32",
+              ) + (item.span ? ` md:col-span-2` : "")
+            }
           >
             <item.icon className="stroke-secondary group-hover:stroke-primary absolute -bottom-10 -left-10 -z-10 size-64 stroke-3 transition-all group-hover:opacity-30" />
             <item.icon className="size-10 stroke-1" />

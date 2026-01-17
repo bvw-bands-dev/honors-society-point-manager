@@ -1,6 +1,6 @@
 /*
  * Blue Flame's Honors Society Point Manager
- * Copyright (C) 2025 Blue Flame
+ * Copyright (C) 2026 Blue Flame
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -133,6 +133,29 @@ export async function getEventSubmissions(userId?: string, showAllData = true) {
       );
     },
     [String(userId), String(showAllData)],
+    { tags: ["db:events", "db:events:submissions"] },
+  );
+  return await req();
+}
+
+export async function getAttendanceSubmissions(userId?: string) {
+  const req = unstable_cache(
+    async () => {
+      return (
+        await db
+          .select()
+          .from(eventSubmissions)
+          .where(
+            and(
+              userId ? eq(eventSubmissions.memberId, userId) : undefined,
+              eq(eventSubmissions.type, "attendance"),
+            ),
+          )
+      ).sort(
+        (a, b) => (a.eventDate?.getTime() ?? 0) - (b.eventDate?.getTime() ?? 0),
+      );
+    },
+    [String(userId)],
     { tags: ["db:events", "db:events:submissions"] },
   );
   return await req();

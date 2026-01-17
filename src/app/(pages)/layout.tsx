@@ -1,6 +1,6 @@
 /*
  * Blue Flame's Honors Society Point Manager
- * Copyright (C) 2025 Blue Flame
+ * Copyright (C) 2026 Blue Flame
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -89,7 +89,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-br from-[color-mix(in_oklch,var(--background),black_10%)] to-[color-mix(in_oklch,var(--background),white_10%)] bg-fixed bg-center antialiased`}
       >
-        <div className="relative mx-auto flex h-screen max-w-[100ch] flex-col gap-2 p-8">
+        <div className="relative mx-auto flex h-screen max-w-[100ch] flex-col gap-2 p-8 [&:has([data-print])]:max-w-full">
           {children}
           <Toaster richColors position="bottom-right" />
         </div>

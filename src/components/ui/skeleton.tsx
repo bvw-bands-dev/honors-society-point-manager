@@ -1,6 +1,6 @@
 /*
  * Blue Flame's Honors Society Point Manager
- * Copyright (C) 2025 Blue Flame
+ * Copyright (C) 2026 Blue Flame
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -16,7 +16,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -25,7 +25,7 @@ function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("bg-accent animate-pulse rounded-md", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Skeleton }
+export { Skeleton };
